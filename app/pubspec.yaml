@@ -1,5 +1,5 @@
 name: pokemon_view
-description: "A new Flutter project."
+description: A simple Pokemon list app with Riverpod and Freezed
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -13,12 +13,43 @@ dependencies:
 
   cupertino_icons: ^1.0.8
 
+  # Navigation
+  go_router: ^16.1.0
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  # DI
+  get_it: ^8.2.0
+  # State Management
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+  # Freezed
+  freezed_annotation: ^2.4.4
+  # http client
+  dio: ^5.9.0
+  # Loading skeleton
+  skeletonizer: ^2.1.0+1
+  shared_preferences: ^2.5.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
+  # Build runner
+  build_runner: ^2.5.4
+  # Riverpod
+  riverpod_generator: ^2.6.4
+  # Freezed
+  freezed: ^2.5.8
+  # Json Serializable
+  json_serializable: ^6.7.1
 
 flutter:
 
   uses-material-design: true
+  generate: true
+  
+flutter_intl:
+  enabled: true
