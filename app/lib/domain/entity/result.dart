@@ -2,17 +2,17 @@ sealed class Result<T> {
   const Result();
 
   /// Creates a successful [Result], completed with the specified [value].
-  const factory Result.success(T value) = Success<T>._;
+  const factory Result.success(T value, bool more) = Success<T>._;
 
   /// Creates an error [Result], completed with the specified [error].
   const factory Result.failure(Exception error) = Failure<T>._;
 
   /// Converts the result to another type.
   R map<R>({
-    required R Function(T value) onSuccess,
+    required R Function(T value, bool more) onSuccess,
     required R Function(Exception error) onFailure,
   }) => switch (this) {
-    Success(:final value) => onSuccess(value),
+    Success(:final value, :final more) => onSuccess(value, more),
     Failure(:final error) => onFailure(error),
   };
 
@@ -34,17 +34,18 @@ sealed class Result<T> {
 
 /// Subclass of Result for values
 final class Success<T> extends Result<T> {
-  const Success._(this.value);
+  const Success._(this.value, this.more);
 
   /// Returned value in result
   final T value;
+  final bool more;
 
   @override
   String toString() => '$value';
 }
 
 /// Subclass of Result for errors
-final class Failure<E> extends Result<E> {
+final class Failure<T> extends Result<T> {
   const Failure._(this.error);
 
   /// Returned error in result
