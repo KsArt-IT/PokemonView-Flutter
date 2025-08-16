@@ -10,7 +10,7 @@ class NetworkManager extends _$NetworkManager {
   static const _receiveTimeout = Duration(seconds: 10);
 
   @override
-  FutureOr<Dio> build() async {
+  Dio build() {
     final dio = Dio(BaseOptions(
       baseUrl: _baseUrl,
       connectTimeout: _connectTimeout,
