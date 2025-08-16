@@ -8,8 +8,8 @@ part 'pokemon_list_response.g.dart';
 class PokemonListResponse with _$PokemonListResponse {
   const factory PokemonListResponse({
     required int count,
-    required String next,
-    required String previous,
+    required String? previous,
+    required String? next,
     required List<PokemonItem> results,
   }) = _PokemonListResponse;
 
